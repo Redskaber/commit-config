@@ -1,8 +1,9 @@
 [tool.commitizen]
-name = "cz_conventional_commits"
-version = "0.0.0"
-tag_format = "v$version"
-bump_message = "bump: $current_version → $new_version"
+name = "cz_customize"
+tag_format = "$version"
+version_scheme = "semver2"
+version = "0.0.1"
+major_version_zero = true
 
 [tool.commitizen.customize]
 type_choices = [
