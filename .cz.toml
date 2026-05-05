@@ -6,6 +6,8 @@ version = "0.0.1"
 major_version_zero = true
 
 [tool.commitizen.customize]
+template = "{% if type %}{{type}}{% if scope %}({{scope}}){% endif %}: {{subject}}{% endif %}{% if body %}\n\n{{body}}{% endif %}{% if breaking %}\n\nBREAKING CHANGE: {{breaking}}{% endif %}{% if issues %}\n\nCloses: {{issues}}{% endif %}"
+
 questions = [
   { type = "list", name = "type", message = "Select the type of change you are committing", choices = [
     { value = "feat", name = "feat: A new feature. Correlates with MINOR in SemVer" },
@@ -21,7 +23,7 @@ questions = [
     { value = "revert", name = "revert: Reverts a previous commit" },
   ] },
   { type = "input", name = "scope", message = "What is the scope of this change (e.g. component or file name): (press enter to skip)" },
-  { type = "input", name = "subject", message = "Write a short, imperative tense description of the change (max 87 chars):\n" },
+  { type = "input", name = "subject", message = "Write a short, imperative tense description of the change (max 87 chars):" },
   { type = "input", name = "body", message = "Provide a longer description of the change: (press enter to skip)" },
   { type = "confirm", name = "breaking", message = "Are there any breaking changes?" },
   { type = "input", name = "issues", message = "Does this change affect any open issues? (press enter to skip)" },
